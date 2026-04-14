@@ -1,0 +1,80 @@
+name: Continuous Integration
+permissions:
+  contents: read
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+
+      - name: Clone repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install yarn
+        run: npm i -g yarn
+
+      - name: Install dependencies
+        run: make        
+
+      - name: Check contracts are linted
+        run: yarn lint:check
+
+      - name: Add lint summary
+        run: |
+          echo '## Lint results' >> $GITHUB_STEP_SUMMARY
+          echo '✅ Passed' >> $GITHUB_STEP_SUMMARY
+
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Foundry
+        uses: onbjerg/foundry-toolchain@v1.0.6
+        with:
+          version: nightly
+
+      - name: Install node
+        uses: actions/setup-node@v2
+
+      - name: Install yarn
+        run: npm i -g yarn
+
+      - name: Clone repo with submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: make
+
+      - name: Show Foundry config
+        run: forge config
+
+      - name: Run tests
+        run: make test
+
+      - name: Add test summary
+        run: |
+          echo '## Test results' >> $GITHUB_STEP_SUMMARY
+          echo '✅ Passed' >> $GITHUB_STEP_SUMMARY
+
+
+  full-pass:
+    needs:
+      - "tests"
+      - "lint"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add summary
+        run: |
+          echo '## Summary' >> $GITHUB_STEP_SUMMARY
+          echo '✅ All passed' >> $GITHUB_STEP_SUMMARY
