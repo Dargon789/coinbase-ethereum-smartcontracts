@@ -9,7 +9,7 @@ const message = args[1];
 async function main() {
 	const env = await loadEnvironmentFromHardhat({hre});
 
-	const accountAddress = !/^\d+$/.test(account)
+	const accountAddress = /^0x[a-fA-F0-9]{40}$/.test(account) || !/^\d+$/.test(account)
 		? account
 		: env.unnamedAccounts[parseInt(account)];
 
