@@ -1,0 +1,99 @@
+import { config, privateKey, transactionHashRegex } from '@wagmi/test'
+import { parseEther } from 'viem'
+import { privateKeyToAccount } from 'viem/accounts'
+import { beforeEach, expect, test } from 'vitest'
+import { connect } from './connect.js'
+import { disconnect } from './disconnect.js'
+import { sendTransaction } from './sendTransaction.js'
+
+const connector = config.connectors[0]!
+
+beforeEach(async () => {
+  if (config.state.current === connector.uid)
+    await disconnect(config, { connector })
+})
+
+test('default', async () => {
+  const result = await connect(config, { connector })
+  config.state.connections.set(connector.uid, {
+    ...result,
+    // Switch up the current account because the default one is running out of funds somewhere
+    accounts: result.accounts.slice(1) as unknown as typeof result.accounts,
+    connector,
+  })
+  await expect(
+    sendTransaction(config, {
+      to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+      value: parseEther('0.0001'),
+    }),
+  ).resolves.toMatch(transactionHashRegex)
+  await disconnect(config, { connector })
+})
+
+test('behavior: connector not connected', async () => {
+  await connect(config, { connector })
+  await expect(
+    sendTransaction(config, {
+      connector: config.connectors[1],
+      to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+      value: parseEther('0.0001'),
+    }),
+  ).rejects.toThrowErrorMatchingInlineSnapshot(`
+    [ConnectorNotConnectedError: Connector not connected.
+
+    Version: @wagmi/core@x.y.z]
+  `)
+  await disconnect(config, { connector })
+})
+
+test('behavior: account does not exist on connector', async () => {
+  await connect(config, { connector })
+  await expect(
+    sendTransaction(config, {
+      account: '0xA0Cf798816D4b9b9866b5330EEa46a18382f251e',
+      to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+      value: parseEther('0.0001'),
+    }),
+  ).rejects.toThrowErrorMatchingInlineSnapshot(`
+    [ConnectorAccountNotFoundError: Account "0xA0Cf798816D4b9b9866b5330EEa46a18382f251e" not found for connector "Mock Connector".
+
+    Version: @wagmi/core@x.y.z]
+  `)
+  await disconnect(config, { connector })
+})
+
+test('behavior: value exceeds balance', async () => {
+  await connect(config, { connector })
+  await expect(
+    sendTransaction(config, {
+      to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+      value: parseEther('99999'),
+    }),
+  ).rejects.toThrowErrorMatchingInlineSnapshot(`
+    [TransactionExecutionError: HTTP request failed.
+
+    Status: 400
+    URL: http://127.0.0.1:8545/8350
+    Request body: {"method":"eth_sendTransaction","params":[{"from":"0x95132632579b073D12a6673e18Ab05777a6B86f8","to":"0xd2135CfB216b74109775236E36d4b433F1DF507B","value":"0x152cf4e72a974f1c0000"}]}
+     
+    Request Arguments:
+      from:   0x95132632579b073D12a6673e18Ab05777a6B86f8
+      to:     0xd2135CfB216b74109775236E36d4b433F1DF507B
+      value:  99999 ETH
+
+    Details: Bad Request
+    Version: viem@2.44.0]
+  `)
+  await disconnect(config, { connector })
+})
+
+test('behavior: local account', async () => {
+  const account = privateKeyToAccount(privateKey)
+  await expect(
+    sendTransaction(config, {
+      account,
+      to: '0xd2135CfB216b74109775236E36d4b433F1DF507B',
+      value: parseEther('0.000001'),
+    }),
+  ).resolves.toMatch(transactionHashRegex)
+})

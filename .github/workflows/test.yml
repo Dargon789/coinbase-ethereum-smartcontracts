@@ -1,26 +1,47 @@
 name: Tests
- 
+
 on:
   push:
     branches: [main]
   pull_request:
- 
+    branches: [main]
+  workflow_dispatch:
+
 permissions:
   contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22]
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
         with:
-          submodules: recursive
- 
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
- 
-      - name: Build
-        run: forge build
- 
+          version: 10.28.1
+
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --ignore-scripts
+
+      - name: build packages
+        run: pnpm build
+
       - name: Run tests
-        run: forge test -vvv
+        run: pnpm test
+
+      # Feel free to remove this step if you don't want to run the README.md
+      - name: Run README.md
+        run: pnpm dlx ezx@0.0.18 -k --verbose README.md
