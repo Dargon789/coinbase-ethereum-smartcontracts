@@ -5,6 +5,6 @@ import { deploy } from './ethers-lib'
     const result = await deploy('MyToken', [])
     console.log(`address: ${result.address}`)
   } catch (e) {
-    console.log(e.message)
+    console.log(e instanceof Error ? e.message : String(e))
   }
 })()
