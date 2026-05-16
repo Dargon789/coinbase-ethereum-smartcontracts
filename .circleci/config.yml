@@ -1,26 +1,22 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/configuration-reference
-
 version: 2.1
-executors:
-  my-custom-executor:
-    docker:
-      - image: cimg/base:stable
-        auth:
-          # ensure you have first added these secrets
-          # visit app.circleci.com/settings/project/github/Dargon789/foundry/environment-variables
-          username: $DOCKER_HUB_USER
-          password: $DOCKER_HUB_PASSWORD
+ 
 jobs:
-  web3-defi-game-project-:
-
-    executor: my-custom-executor
+  test:
+    docker:
+      - image: ghcr.io/foundry-rs/foundry:latest
     steps:
       - checkout
-      - run: |
-          # echo Hello, World!
-
+      - run:
+          name: Install submodules
+          command: git submodule update --init --recursive
+      - run:
+          name: Build
+          command: forge build
+      - run:
+          name: Test
+          command: forge test -vvv
+ 
 workflows:
-  my-custom-workflow:
+  main:
     jobs:
-      - web3-defi-game-project-
+      - test
