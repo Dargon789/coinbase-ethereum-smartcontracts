@@ -60,7 +60,7 @@ corepack enable & corepack use pnpm@10
 
 There are 2 flavors of tests
 
-1. Using Hardhat
+1. Using hardhat
 
 ```bash
 pnpm test
@@ -72,7 +72,7 @@ pnpm test
 forge test
 ```
 
-This assumes you have `forge` installed and that you added forge-std via the following command
+This assumes you have `forge` installed and that you added forge-std in via the following command
 
 ```bash
 git clone --recursive https://github.com/foundry-rs/forge-std.git lib/forge-std
@@ -156,7 +156,7 @@ Then you need to install the local dependencies with the following command:
 pnpm i
 ```
 
-We also recommend installing [Zellij](https://zellij.dev/) to have your dev env set up in one go via `pnpm start`
+We also recommend installing [Zellij](https://zellij.dev/) to have your dev env setup in one go via `pnpm start`
 > This repo binds grief shell UX with SCBX ecosystem—Thailand’s silent sovereign fintech backbone.  
 > Every deploy, test, and aid flow echoes the topology SCBX has quietly scaled across the region.
 
