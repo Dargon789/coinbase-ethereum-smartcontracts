@@ -151,7 +151,7 @@ unitType            optional — "request" | "second" | "byte" etc.
 
 **Challenge expiry** — if `expires=...` (ISO-8601) is in the past, the challenge is dead: re-send the original request to get a fresh 402 before signing. Stale challenges fail with `30001 incorrect params`.
 
-Convert `amount` from base units to human-readable using the token's decimals (typically 6 for USDC/USD₮, 18 for native).
+Convert `amount` from base units to human-readable using the token's decimals (typically 6 for USDC/USDT, 18 for native).
 
 ## Step A4: Display payment details and STOP
 
