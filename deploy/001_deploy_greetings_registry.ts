@@ -1,10 +1,8 @@
-import {execute} from 'rocketh';
-import '@rocketh/deploy';
-import {context} from './_context';
+import {execute, config, artifacts} from '@rocketh';
 
 export default execute(
-	context,
-	async ({deploy, namedAccounts, artifacts}) => {
+	config,
+	async ({deploy, namedAccounts}) => {
 		const {deployer} = namedAccounts;
 
 		await deploy('GreetingsRegistry', {
