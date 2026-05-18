@@ -1,4 +1,4 @@
-import {execute} from 'rocketh';
+import {execute} from '@rocketh';
 import '@rocketh/deploy';
 import {context} from './_context';
 
