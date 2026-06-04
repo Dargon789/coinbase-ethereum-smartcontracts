@@ -1,0 +1,1 @@
+C:/Users/Legion/projects/coinbase-ethereum-smartcontracts/packages/react/src/exports/connectors.ts
