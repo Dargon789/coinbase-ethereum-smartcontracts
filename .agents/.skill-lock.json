@@ -1,0 +1,221 @@
+{
+  "version": 3,
+  "skills": {
+    "okx-a2a-payment": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-a2a-payment/SKILL.md",
+      "skillFolderHash": "75ccb010c0eef2ae3b5374b90b733d5d774f9bf5",
+      "installedAt": "2026-05-15T15:54:29.904Z",
+      "updatedAt": "2026-05-16T03:19:56.052Z"
+    },
+    "okx-agentic-wallet": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-agentic-wallet/SKILL.md",
+      "skillFolderHash": "881cb89f0a03dee6b92abf783b3fc40a56e66c39",
+      "installedAt": "2026-05-15T15:54:29.917Z",
+      "updatedAt": "2026-05-16T03:19:56.098Z"
+    },
+    "okx-agent-payments-protocol": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-agent-payments-protocol/SKILL.md",
+      "skillFolderHash": "27705232a5a3b7c439596882075300465b467dbe",
+      "installedAt": "2026-05-15T15:54:29.928Z",
+      "updatedAt": "2026-05-16T03:19:56.117Z"
+    },
+    "okx-audit-log": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-audit-log/SKILL.md",
+      "skillFolderHash": "59ee1dd6d7e3cde6c2ee99d574b30c62afdea69c",
+      "installedAt": "2026-05-15T15:54:29.942Z",
+      "updatedAt": "2026-05-16T03:19:56.133Z"
+    },
+    "okx-dapp-discovery": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dapp-discovery/SKILL.md",
+      "skillFolderHash": "b175fd0384a699b0e693033b0a80c0597b1595ec",
+      "installedAt": "2026-05-15T15:54:29.957Z",
+      "updatedAt": "2026-05-16T03:19:56.149Z"
+    },
+    "okx-defi-invest": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-defi-invest/SKILL.md",
+      "skillFolderHash": "4f32a049f7e21cee118c4204517e21b9ad498f48",
+      "installedAt": "2026-05-15T15:54:29.972Z",
+      "updatedAt": "2026-05-16T03:19:56.167Z"
+    },
+    "okx-defi-portfolio": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-defi-portfolio/SKILL.md",
+      "skillFolderHash": "0e2ae366b8b277b576d3ee654213a7566dce785c",
+      "installedAt": "2026-05-15T15:54:29.994Z",
+      "updatedAt": "2026-05-16T03:19:56.189Z"
+    },
+    "okx-dex-bridge": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-bridge/SKILL.md",
+      "skillFolderHash": "f628451e1bb3cc5159bb5e29fc73b24acd7bd109",
+      "installedAt": "2026-05-15T15:54:30.012Z",
+      "updatedAt": "2026-05-16T03:19:56.207Z"
+    },
+    "okx-dex-market": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-market/SKILL.md",
+      "skillFolderHash": "7d795b8351e5b8c7b3f61832d0f1353337689bfa",
+      "installedAt": "2026-05-15T15:54:30.031Z",
+      "updatedAt": "2026-05-16T03:19:56.224Z"
+    },
+    "okx-dex-signal": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-signal/SKILL.md",
+      "skillFolderHash": "de5cbbf79c029911cf0c8e6f76292a5a77b262ed",
+      "installedAt": "2026-05-15T15:54:30.049Z",
+      "updatedAt": "2026-05-16T03:19:56.240Z"
+    },
+    "okx-dex-strategy": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-strategy/SKILL.md",
+      "skillFolderHash": "9eb1d678095f58d9a9468eaa2454a2e3af344686",
+      "installedAt": "2026-05-15T15:54:30.068Z",
+      "updatedAt": "2026-05-16T03:19:56.256Z"
+    },
+    "okx-dex-swap": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-swap/SKILL.md",
+      "skillFolderHash": "8209eba4d66fe66dddb54108225d481126539bed",
+      "installedAt": "2026-05-15T15:54:30.088Z",
+      "updatedAt": "2026-05-16T03:19:56.272Z"
+    },
+    "okx-dex-token": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-token/SKILL.md",
+      "skillFolderHash": "06496ea47a45a3e204b12ad34f11e29b1b8d13a7",
+      "installedAt": "2026-05-15T15:54:30.108Z",
+      "updatedAt": "2026-05-16T03:19:56.288Z"
+    },
+    "okx-dex-trenches": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-trenches/SKILL.md",
+      "skillFolderHash": "8f2d89ffdd54a6cf85b61215bf3a1259cb90e293",
+      "installedAt": "2026-05-15T15:54:30.126Z",
+      "updatedAt": "2026-05-16T03:19:56.304Z"
+    },
+    "okx-dex-ws": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-dex-ws/SKILL.md",
+      "skillFolderHash": "443166d7650e8d337551e55029f31d4b026e1e89",
+      "installedAt": "2026-05-15T15:54:30.144Z",
+      "updatedAt": "2026-05-16T03:19:56.319Z"
+    },
+    "okx-growth-competition": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-growth-competition/SKILL.md",
+      "skillFolderHash": "4a02a218ce52f33b7b28683fb891e02b480a6ccf",
+      "installedAt": "2026-05-15T15:54:30.169Z",
+      "updatedAt": "2026-05-16T03:19:56.335Z"
+    },
+    "okx-how-to-play": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-how-to-play/SKILL.md",
+      "skillFolderHash": "d96365e946be4cdcf631ceea8173c5cfd4e792d5",
+      "installedAt": "2026-05-15T15:54:30.188Z",
+      "updatedAt": "2026-05-16T03:19:56.351Z"
+    },
+    "okx-onchain-gateway": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-onchain-gateway/SKILL.md",
+      "skillFolderHash": "6446d193ea315995e9ae7a011ecf7f5450f9ac95",
+      "installedAt": "2026-05-15T15:54:30.210Z",
+      "updatedAt": "2026-05-16T03:19:56.366Z"
+    },
+    "okx-security": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-security/SKILL.md",
+      "skillFolderHash": "cd403cbe50be5a88d5835ccd3f2e443a11883454",
+      "installedAt": "2026-05-15T15:54:30.227Z",
+      "updatedAt": "2026-05-16T03:19:56.382Z"
+    },
+    "okx-wallet-portfolio": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-wallet-portfolio/SKILL.md",
+      "skillFolderHash": "5dc2aca52725a878b6c9306034d002488b69f942",
+      "installedAt": "2026-05-15T15:54:30.244Z",
+      "updatedAt": "2026-05-16T03:19:56.398Z"
+    },
+    "okx-x402-payment": {
+      "source": "okx/onchainos-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/okx/onchainos-skills.git",
+      "skillPath": "skills/okx-x402-payment/SKILL.md",
+      "skillFolderHash": "ee63f9f2736efac66279f0c15f70dad2191ea54a",
+      "installedAt": "2026-05-15T15:54:30.261Z",
+      "updatedAt": "2026-05-16T03:19:56.414Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-05-15T15:54:33.377Z",
+      "updatedAt": "2026-05-15T15:54:33.377Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "dexto",
+    "firebender",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp"
+  ]
+}
