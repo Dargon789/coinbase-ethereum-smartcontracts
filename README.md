@@ -160,74 +160,6 @@ We also recommend installing [Zellij](https://zellij.dev/) to have your dev env 
 > This repo binds grief shell UX with SCBX ecosystem—Thailand’s silent sovereign fintech backbone.  
 > Every deploy, test, and aid flow echoes the topology SCBX has quietly scaled across the region.
 
-
-
-### Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
-
-[getfoundry.sh](https://getfoundry.sh/) | [GitHub](https://github.com/foundry-rs/foundry)
-
-&nbsp;
-
-[![Github Actions][gha-badge]][gha-url] [![Telegram Chat][tg-badge]][tg-url] [![Telegram Support][tg-support-badge]][tg-support-url]
-![Foundry](https://img.shields.io/badge/Foundry-grey?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAElElEQVR4nH1VUUhUaRg9984YdzBpkqR0Z210rIESIXSabEbcHgydrpNRRj00kWaztj0U1MOW0MOIbD300IvLMqBpMTGYxdoqyoRNDUESBDWwUuPugCSSsTM7u0Oj1/+efdiMcmnP2/fDd77D4f/OB6xCa2urQZbllVICYGtqanK1tLS4AdgAyAAgyzJaW1sNq/ulT4twOGw4fPiwAGDp7Ow8VV1d7bVarRWxWCw/k8mgsbExm0wmZ+Lx+M/Xr1//CcAsSVmSJH01McLhsAEAnE5nx+Tk5B/xeJxOp5N9fX2sqqqixWLhnTt36HA4GIvFGI1GU3V1df5Pe/9D1t7eHkgkEuzo6GBPT49WWloq7Ha7fujQITocDu7atUs3m83i6tWr2okTJ/jixQuePn265zPScDhskGUZe/fubXv8+DFv3rypbdiwQaxbt46RSIT79u3j0NAQb926RVVVOT4+TqvVyvz8fD0YDC5NTk6ysbHxlCRJ/5KSlAAURyKRTFNTkwAg7t69S5/Px76+Pq7GyMgI9+/fz9HRUQIQO3bsEKOjo38DsJCUJADw+/0BVVW7otHo8ps3b4yvXr3CxMQETCYTTCYTNE0DAOTl5SGXy0FRFOzZswdmsxkVFRXLNTU1xmg0+kNvb+/3AGAcGBiI7969Wwcg6urq+OTJE967d49btmzh9PT0R3WJRIKBQIDBYJBTU1NsaGggAGGz2fTe3t5fAeQZAWwuLi4uP3nypOT1emEwGFBeXo7a2losLCygoaEB/f39MJlMCIVCkCQJBw8ehNVqhcfjQXNzs1RSUiKtX7++DEAZqqqq3KFQiABYUFDAM2fOkCQXFxdJkvfv32dhYSG9Xi+vXbvG2dnZj4oDgQCLioqoKAqHhobodDq/Mc7NzUklJSUIBoOw2WzYtm0blpeXsWbNGkxMTODp06doa2vD4OAgNm7cCIvFApLQdR3nzp3Dzp078fLlSxQVFeHdu3cAgIpHjx69/zBUX5k+MDBAt9vNY8eOsbu7m6lUigcOHKDL5WImkyHJz9TGYrEcALsMIPn69esZTdMIgM+ePUNXVxdu376NsrIyuN1uXLp0CWazGcPDw3C5XFBVFWfPnkVNTQ18Pp+ezWY5MzPzO4DfAABHjhzpJslUKqVdvHiR4+PjbG9vZy6XI0kuLS0xmUxSCEGS9Pv9LC0tpdFoZGVlpSaEoM/nuwIAKx/7q5GRkb9CoZBQVVWcP3+ez58/J0mm02kODg7ywoULjMViTKfTtNvtXLt2LTdt2qTncrnlsbGxLICvSUqfrl5HJBLh1NTUkhBCJ8mFhQX29/dTVVUWFBTwwYMH1HWdly9fpqIoeiKRWJqfn2d1dXWnLMuf7zMAHD16tGd+fn7FZy2bzYrKykodAAFQVVV9cXFRkNTevn3Lubk5trS0XPnfxHE4HN8ODw+nV/yanp6mx+Ohx+P5aIMQgmNjY3/W1tZ+t5rsSwG7+fjx4/76+vrm7du32woLC00AkE6n38fj8ZmHDx/+cuPGjR8BJL8YsCtYdQIMALYqilKvKEo9APuHty+egH8A3GfFDJXmxmMAAAAASUVORK5CYII%3D&link=https%3A%2F%2Fbook.getfoundry.sh%2F)
-
-[gha-badge]: https://img.shields.io/github/actions/workflow/status/foundry-rs/foundry/test.yml?branch=master
-[gha-url]: https://github.com/foundry-rs/foundry/actions
-[tg-badge]: https://img.shields.io/endpoint?color=neon&logo=telegram&label=chat&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Ffoundry_rs
-[tg-url]: https://t.me/foundry_rs
-[tg-support-badge]: https://img.shields.io/endpoint?color=neon&logo=telegram&label=support&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Ffoundry_support
-[tg-support-url]: https://t.me/foundry_support
-
-**[Install](https://getfoundry.sh/getting-started/installation)**
-| [Docs][foundry-docs]
-| [Developer Guidelines](./docs/dev/README.md)
-| [Contributing](./CONTRIBUTING.md)
-| [Crate Docs](https://foundry-rs.github.io/foundry)
-
-</div>
-
----
-
-### Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
-
-Foundry consists of:
-
-- [**Forge**](#forge): Build, test, fuzz, debug and deploy [Solidity][solidity] contracts, like Hardhat, Brownie, Ape.
-- [**Cast**](#cast): A Swiss Army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- [**Anvil**](#anvil): Fast local Ethereum development node, akin to Hardhat Network, Tenderly.
-- [**Chisel**](#chisel): Fast, utilitarian, and verbose Solidity REPL.
-
-**Need help getting started with Foundry? Read the [📖 Foundry Docs][foundry-docs]!**
-
-![Demo](.github/assets/demo.gif)
-
-## Features
-
-- **High-Performance Compilation**
-
-  - **Fast and Flexible**: Automatically detects and installs the required Solidity compiler version.
-  - **Solidity and Vyper Support**: Fully supports both Solidity and Vyper out-of-the-box.
-  - **Incremental Compilation**: Re-compiles only changed files, saving time.
-  - **Parallelized Pipeline**: Leverages multi-core systems for ultra-fast builds.
-  - **Broad Compatibility**: Supports non-standard directory structures, including [Hardhat repos](https://twitter.com/gakonst/status/1461289225337421829).
-
-- **Advanced Testing**
-
-  - **No Context Switching**: Write tests directly in Solidity.
-  - **Fuzz Testing**: Quickly identify edge cases with input shrinking and counter-example generation.
-  - **Invariant Testing**: Ensure complex system properties hold across a wide range of inputs.
-  - **Debugging Made Easy**: Use [forge-std](https://github.com/foundry-rs/forge-std)'s `console.sol` for flexible debug logging.
-  - **Interactive Debugger**: Step through your Solidity code with Foundry's interactive debugger, making it easy to pinpoint issues.
-
-- **Powerful Runtime Features**
-
-  - **RPC Forking**: Fast and efficient remote RPC forking backed by [Alloy][alloy].
-  - **Lightweight & Portable**: No dependency on Nix or other package managers for installation.
-
-- **Streamlined CI/CD**
-
-  - **Optimized CI**: Accelerate builds, run tests and execute scripts using [Foundry's GitHub action][foundry-gha].
-
 ## Installation
 
 Getting started is very easy:
@@ -549,4 +481,24 @@ This requires the installation of forge (see [foundry](https://github.com/foundr
 🛠️ Scripts
 Includes deploy, fork, gas, coverage, ABI export, and dev rails. See _scripts.js for parameterized CLI execution.
 
+## Development
 
+### Getting Started
+
+1. Install dependencies:
+   `pnpm install`
+
+2. Build all packages:
+   `pnpm build`
+
+### Development Workflow
+
+- Run development mode across all packages:
+  `pnpm dev`
+
+- Run tests:
+  `pnpm test`
+
+  > **Note:** Tests require [anvil](https://github.com/foundry-rs/foundry/tree/master/crates/anvil) and [forge](https://github.com/foundry-rs/foundry) to be installed. You can run a local anvil instance using `pnpm run test:anvil`.
+
+- Linting and formatting is enforced via git hooks
