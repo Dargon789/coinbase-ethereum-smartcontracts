@@ -168,7 +168,7 @@ We also recommend installing [Zellij](https://zellij.dev/) to have your dev env 
    `pnpm install`
 
 2. Build all packages:
-   `pnpm build`
+   pnpm compile
 
 ### Development Workflow
 
