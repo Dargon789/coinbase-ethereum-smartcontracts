@@ -178,6 +178,6 @@ We also recommend installing [Zellij](https://zellij.dev/) to have your dev env 
 - Run tests:
   `pnpm test`
 
-  > **Note:** Tests require [anvil](https://github.com/foundry-rs/foundry/tree/master/crates/anvil) and [forge](https://github.com/foundry-rs/foundry) to be installed. You can run a local anvil instance using `pnpm run test:anvil`.
+  > **Note:** Tests require [anvil](https://github.com/foundry-rs/foundry/tree/master/crates/anvil) and [forge](https://github.com/foundry-rs/foundry) to be installed. You can run a local anvil instance using anvil.
 
 - Linting and formatting is enforced via git hooks
