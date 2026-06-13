@@ -173,7 +173,7 @@ We also recommend installing [Zellij](https://zellij.dev/) to have your dev env 
 ### Development Workflow
 
 - Run development mode across all packages:
-  `pnpm dev`
+  pnpm compile:watch
 
 - Run tests:
   `pnpm test`
