@@ -168,16 +168,16 @@ We also recommend installing [Zellij](https://zellij.dev/) to have your dev env 
    `pnpm install`
 
 2. Build all packages:
-   pnpm compile
+   `pnpm build`
 
 ### Development Workflow
 
 - Run development mode across all packages:
-  pnpm compile:watch
+  `pnpm dev`
 
 - Run tests:
   `pnpm test`
 
-  > **Note:** Tests require [anvil](https://github.com/foundry-rs/foundry/tree/master/crates/anvil) and [forge](https://github.com/foundry-rs/foundry) to be installed. You can run a local anvil instance using anvil.
+  > **Note:** Tests require [anvil](https://github.com/foundry-rs/foundry/tree/master/crates/anvil) and [forge](https://github.com/foundry-rs/foundry) to be installed. You can run a local anvil instance using `pnpm run test:anvil`.
 
 - Linting and formatting is enforced via git hooks
