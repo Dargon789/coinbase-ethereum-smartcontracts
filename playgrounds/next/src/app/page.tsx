@@ -29,7 +29,7 @@ import {
 import { switchChain } from 'wagmi/actions'
 import { optimism, sepolia } from 'wagmi/chains'
 
-import { wagmiContractConfig } from './contracts'
+import { BINANCE_BASE_EOA } from './contracts'
 // config from contracts.ts
 const BINANCE_DEPOSIT_BASE = "0x49d762757c4af02b9c88079bc80234782083a9e9"; 
 const WEEKLY_AMOUNT = 50000000000n; //  $50,000 (6 Decimals of USDC/USDT)
