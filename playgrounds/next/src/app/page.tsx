@@ -59,7 +59,7 @@ export default function App() {
       ],
       capabilities: {
         paymasterService: {
-          url: 'https://api.developer.coinbase.com/rpc/v1/base/RGEVKM4RiREFEI7nKEdGeVYN6YXKEU11',
+          url: `https://api.developer.coinbase.com/rpc/v1/base/${process.env.NEXT_PUBLIC_CDP_API_KEY}`,
         },
       },
     });
