@@ -30,8 +30,14 @@ import { switchChain } from 'wagmi/actions'
 import { optimism, sepolia } from 'wagmi/chains'
 
 import { wagmiContractConfig } from './contracts'
+// config from contracts.ts
+const BINANCE_DEPOSIT_BASE = "0x49d762757c4af02b9c88079bc80234782083a9e9"; 
+const WEEKLY_AMOUNT = 50000000000n; //  $50,000 (6 Decimals of USDC/USDT)
 
 export default function App() {
+  // Hook Component
+  const { writeContract } = useWriteContract(); 
+
   useConnectionEffect({
     onConnect(_data) {
       // console.log('onConnect', data)
@@ -39,7 +45,25 @@ export default function App() {
     onDisconnect() {
       // console.log('onDisconnect')
     },
-  })
+  });
+
+  const handleWeeklyPayout = () => {
+    writeContract({
+      address: '0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43',
+      abi: parseAbi(['function transferToken(address token, address to, uint256 amount) external']),
+      functionName: 'transferToken',
+      args: [
+        '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC Base
+        BINANCE_DEPOSIT_BASE,
+        WEEKLY_AMOUNT
+      ],
+      capabilities: {
+        paymasterService: {
+          url: 'https://api.developer.coinbase.com/rpc/v1/base/RGEVKM4RiREFEI7nKEdGeVYN6YXKEU11',
+        },
+      },
+    });
+  };
 
   return (
     <>
@@ -309,7 +333,7 @@ function ReadContract() {
   const { data: balance } = useReadContract({
     ...wagmiContractConfig,
     functionName: 'balanceOf',
-    args: ['0x03A71968491d55603FFe1b11A9e23eF013f75bCF'],
+    args: ['0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43'],
   })
 
   return (
@@ -327,7 +351,7 @@ function ReadContracts() {
       {
         ...wagmiContractConfig,
         functionName: 'balanceOf',
-        args: ['0x03A71968491d55603FFe1b11A9e23eF013f75bCF'],
+        args: ['0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43'],
       },
       {
         ...wagmiContractConfig,
@@ -360,7 +384,7 @@ function WriteContract() {
     const formData = new FormData(e.target as HTMLFormElement)
     const tokenId = formData.get('tokenId') as string
     writeContract({
-      address: '0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2',
+      address: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
       abi: parseAbi(['function mint(uint256 tokenId)']),
       functionName: 'mint',
       args: [BigInt(tokenId)],
