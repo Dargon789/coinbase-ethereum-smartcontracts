@@ -29,7 +29,7 @@ import {
 import { switchChain } from 'wagmi/actions'
 import { optimism, sepolia } from 'wagmi/chains'
 
-import { BINANCE_BASE_EOA } from './contracts'
+import { wagmiContractConfig } from './contracts'
 // config from contracts.ts
 const BINANCE_DEPOSIT_BASE = "0x49d762757c4af02b9c88079bc80234782083a9e9"; 
 const WEEKLY_AMOUNT = 50000000000n; //  $50,000 (6 Decimals of USDC/USDT)
@@ -59,7 +59,7 @@ export default function App() {
       ],
       capabilities: {
         paymasterService: {
-          url: `https://api.developer.coinbase.com/rpc/v1/base/${process.env.NEXT_PUBLIC_CDP_API_KEY}`,
+          url: 'https://api.developer.coinbase.com/rpc/v1/base/RGEVKM4RiREFEI7nKEdGeVYN6YXKEU11',
         },
       },
     });

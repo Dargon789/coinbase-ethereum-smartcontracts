@@ -1,5 +1,4 @@
 import { randomBytes } from 'crypto'
-
 const size = 256
 let index = size
 let buffer: string
