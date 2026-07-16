@@ -1,4 +1,4 @@
-export const BINANCE_BASE_EOA = {
+export const wagmiContractConfig = {
   address: '0x49d762757c4af02b9c88079bc80234782083a9e9',
   abi: [
     { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
