@@ -8,7 +8,6 @@ import { basename, dirname, resolve } from 'pathe'
 import pc from 'picocolors'
 import { type Abi, type Address, getAddress } from 'viem'
 import { z } from 'zod'
-
 import type { Contract, ContractConfig, Plugin, Watch } from '../config.js'
 import { fromZodError } from '../errors.js'
 import * as logger from '../logger.js'
