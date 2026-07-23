@@ -21,7 +21,4 @@ async function main() {
 	});
 	console.log(tx);
 }
-main().catch((error) => {
-	console.error(error);
-	process.exit(1);
-});
+main();
