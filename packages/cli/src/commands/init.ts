@@ -3,7 +3,6 @@ import dedent from 'dedent'
 import { relative, resolve } from 'pathe'
 import pc from 'picocolors'
 import { z } from 'zod'
-
 import { type Config, defaultConfig } from '../config.js'
 import { fromZodError } from '../errors.js'
 import * as logger from '../logger.js'
