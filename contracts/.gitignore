@@ -1,22 +1,23 @@
-/node_modules
+cache/
+artifacts/
 
-*.local
+coverage*
+typechain-types/
 
-# rocketh
-generated
+.vscode/*
+!.vscode/settings.json.default
+!.vscode/launch.json.default
+!.vscode/extensions.json.default
+
+node_modules/
+.env
+
+.prettierrc.js
+pnpm-lock.yaml
+package.json
+
+contractsInfo.json
+deployments/hardhat
 deployments/localhost
-deployments/hardhat*
-deployments/lan
-deployments/default
-_metadata
 
-# hardhat
-/coverage
-/coverage.json
-/.coverage-config.json
-/.coverage-data.json
-cache
-artifacts
-docs
-
-dist/
+/.dapp
