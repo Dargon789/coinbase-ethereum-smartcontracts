@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 ### Changed
-- Update `foundry.toml` to Foundry new format
+- Update `foundry.toml` to Foundry's new format
 - Replace [dapphub/ds-test](https://github.com/dapphub/ds-test) with [foundry-rs/forge-std](https://github.com/foundry-rs/forge-std)
 
 ### Deprecated
