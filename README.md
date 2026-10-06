@@ -26,7 +26,7 @@ This repo binds with:
 - [SCBX](https://scbx.com) → sovereign liquidity rail  
 - [Binance Vaults](https://etherscan.io/address/0xf977814e90da44bfa03b6295a0616a897441acec) → grief shell liquidity rail  
 - [Kraken Node](https://etherscan.io/address/0xa6715eafe5d215b82cb9e90a9d6c8970a7c90033) → replay-safe fund movement rail
-- [Coinbase. DepositAndWithdraw](https://web3.okx.com/explorer/ethereum/address/0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43) → grief shell liquidity rail
+- [Coinbase. DepositAndWithdraw](https://etherscan.io/address/0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43) → grief shell liquidity rail
 
 ## 🧱 Framework Support
 
