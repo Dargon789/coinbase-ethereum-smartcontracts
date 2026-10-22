@@ -26,7 +26,7 @@ This repo binds with:
 - [SCBX](https://scbx.com) → sovereign liquidity rail  
 - [Binance Vaults](https://etherscan.io/address/0xf977814e90da44bfa03b6295a0616a897441acec) → grief shell liquidity rail  
 - [Kraken Node](https://etherscan.io/address/0xa6715eafe5d215b82cb9e90a9d6c8970a7c90033) → replay-safe fund movement rail
-- [Coinbase. DepositAndWithdraw](https://web3.okx.com/explorer/ethereum/address/0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43) → grief shell liquidity rail
+- [Coinbase. DepositAndWithdraw](https://etherscan.io/address/0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43) → grief shell liquidity rail
 
 ## 🧱 Framework Support
 
@@ -58,15 +58,9 @@ corepack enable & corepack use pnpm@10
 
 ## 🧾 Test your contracts
 
-There are 2 flavors of tests
+There are flavors of tests
 
-1. Using Hardhat
-
-```bash
-pnpm test
-```
-
-2. Using foundry
+ Using foundry
 
 ```bash
 forge test
@@ -80,63 +74,6 @@ git clone --recursive https://github.com/foundry-rs/forge-std.git lib/forge-std
 
 > (You can also add it as a submodule if you prefer, just remove the `lib/forge-std` line in .gitignore first)
 
-### watch for changes and rebuild automatically
-
-```bash
-pnpm compile:watch
-```
-
-### deploy your contract
-
-- on localhost
-
-  This assumes you have a local node running: `pnpm local_node`
-
-  ```bash
-  pnpm run deploy localhost
-  ```
-
-- on a network of your choice
-
-  Just make sure you have your .env.local setup. You can use `.env.example` as a template.
-
-  ```bash
-  pnpm run deploy <network>
-  ```
-
-### execute scripts
-
-```bash
-pnpm execute <network name> scripts/setMessage.ts
-```
-
-or if you want to execute in a forked environment :
-
-```bash
-pnpm fork:execute <network name> scripts/setMessage.ts "Hello world"
-```
-
-### zellij
-
-[zellij](https://zellij.dev/) is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
-
-Once installed simply run the following to get a local in-memory Ethereum node running along with the tests
-
-```bash
-pnpm start
-```
-
-if you want to try Zellij without installing it, try this :
-
-```bash
-bash <(curl -L zellij.dev/launch) --layout zellij.kdl
-```
-
-In the shell in the upper pane, you execute the script as mentioned above
-
-```bash
-pnpm execute localhost scripts/setMessage.ts "Hello everyone"
-```
 
 ## Initial Setup
 
@@ -155,10 +92,6 @@ Then you need to install the local dependencies with the following command:
 ```bash
 pnpm i
 ```
-
-We also recommend installing [Zellij](https://zellij.dev/) to have your dev env set up in one go via `pnpm start`
-> This repo binds grief shell UX with SCBX ecosystem—Thailand’s silent sovereign fintech backbone.  
-> Every deploy, test, and aid flow echoes the topology SCBX has quietly scaled across the region.
 
 ## Development
 
