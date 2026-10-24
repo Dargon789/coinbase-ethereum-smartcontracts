@@ -1,116 +1,238 @@
-## 🧾 coinbase-smartcontracts
+# Coinbase Node.js SDK
 
-Sovereign smart contract development framework aligned with Coinbase SDK, OnchainKit, and multi-framework Ethereum tooling.  
-This repository provides a modular fallback shell UX for grief shell minting, authorship encoding, and emotional anchor deployment across decentralized systems.
+[![npm version](https://img.shields.io/npm/v/@coinbase/coinbase-sdk?style=flat-square&logo=npm)](https://www.npmjs.com/package/@coinbase/coinbase-sdk)
+[![npm weekly downloads](https://img.shields.io/npm/dw/@coinbase/coinbase-sdk?style=flat-square)](https://www.npmtrends.com/@coinbase/coinbase-sdk)
 
-## 🧾 Contributing
 
-We welcome contributions aligned with the Coinbase Wallet SDK ecosystem.  
-Please follow the guidelines outlined in [CONTRIBUTING.md](https://github.com/coinbase/coinbase-wallet-sdk/blob/master/CONTRIBUTING.md) from the official Coinbase repository.
+The Coinbase Node.js SDK enables the simple integration of crypto into your app. By calling Coinbase's Platform APIs, the SDK allows you to provision crypto wallets, send crypto into/out of those wallets, track wallet balances, and trade crypto from one asset into another.
 
-All contributions must respect the MIT license and align with the SDK’s modular fallback shell UX.
+The SDK supports various verbs on Developer-custodied Wallets across multiple networks, as documented [here](https://docs.cdp.coinbase.com/cdp-sdk/docs/networks).
 
-## © Copyright
+*Note: As the SDK provides new capabilities and improves the developer experience, updates may occasionally include breaking changes. These will be documented in the [CHANGELOG.md](CHANGELOG.md) file.*
 
-Copyright © 2024 Coinbase, Inc.  
-This repository scaffolds grief shell rails and emotional anchors aligned with Coinbase Wallet SDK.  
-All rights reserved under the MIT License. See [LICENSE](LICENSE) for details.
+## Documentation
 
-## 🔗 Ecosystem Alignment
+- [CDP API Documentation](https://docs.cdp.coinbase.com/cdp-apis/docs/welcome)
 
-This repo binds with:
+## Requirements
 
-- [Coinbase Wallet SDK](https://github.com/coinbase/coinbase-wallet-sdk) → wallet rail, fiat bridge  
-- [OnchainKit](https://github.com/coinbase/onchainkit) → social UX, onchain proof minting  
-- [Base Network](https://base.org) → fallback shell UX topology  
-- [SCBX](https://scbx.com) → sovereign liquidity rail  
-- [Binance Vaults](https://etherscan.io/address/0xf977814e90da44bfa03b6295a0616a897441acec) → grief shell liquidity rail  
-- [Kraken Node](https://etherscan.io/address/0xa6715eafe5d215b82cb9e90a9d6c8970a7c90033) → replay-safe fund movement rail
-- [Coinbase. DepositAndWithdraw](https://etherscan.io/address/0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43) → grief shell liquidity rail
-
-## 🧱 Framework Support
-
-- 🧱 Hardhat / Foundry / Dapptools support
-- 🧠 Coinbase SDK integration (wallet, fiat bridge)
-- 🧬 OnchainKit for social UX and minting onchain proof
-- 🛠️ Corepack-enabled: use `npm`, `yarn`, or `pnpm` seamlessly
-- 📦 Nix Store compatible for reproducible grief shell builds
-- 🧪 Fuzz, gas, snapshot, and coverage rails
-- 📤 ABI export and forked deployment UX
-
-## 🧾 coinbase-smartcontracts
-
-Sovereign fallback shell UX for Ethereum smart contract development  
-Bind grief shell rail with Coinbase SDK, OnchainKit, and multi-package manager topology
-
-## 🧾 Emotional Anchor
-
-This repo is a grief shell override rail.  
-Every deploy, test, and snapshot is a mint of authorship and lineage.  
-Bound to sovereign node topology via Coinbase SDK and OnchainKit.
-
-Checksum: 256 fuzz runs × 28,783 gas = grief shell weight  
-Commit: 3e4c3a49a98561f420af82b8e1c306a9b127ccf4
-
- ## 🚀 Quick Start
-
-corepack enable & corepack use pnpm@10
-
-## 🧾 Test your contracts
-
-There are flavors of tests
-
- Using foundry
+The Coinbase server-side SDK requires Node.js version 18 or higher and npm version 9.7.2 or higher. To view your currently installed versions of Node.js, run the following from the command-line:
 
 ```bash
-forge test
+node -v
+npm -v
 ```
 
-This assumes you have `forge` installed and that you added forge-std via the following command
+We recommend installing and managing Node.js and npm versions with `nvm`. See [Installing and Updating](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) in the `nvm` README for instructions on how to install `nvm`.
+
+Once `nvm` has been installed, you can install and use the latest versions of Node.js and npm by running the following commands:
 
 ```bash
-git clone --recursive https://github.com/foundry-rs/forge-std.git lib/forge-std
+nvm install node # "node" is an alias for the latest version
+nvm use node
 ```
 
-> (You can also add it as a submodule if you prefer, just remove the `lib/forge-std` line in .gitignore first)
+## Installation
 
+Optional: Initialize the npm
 
-## Initial Setup
-
-You need to have these installed
-
-- [nodejs](https://nodejs.org/en)
-
-- [pnpm](https://pnpm.io/)
-
-  ```bash
-  npm i -g pnpm
-  ```
-
-Then you need to install the local dependencies with the following command:
+This command initializes a new npm project with default settings and configures it to use ES modules by setting the type field to "module" in the package.json file.
 
 ```bash
-pnpm i
+npm init -y; npm pkg set type="module"
 ```
 
-## Development
+#### You can import the SDK as follows
+```bash
+npm install @coinbase/coinbase-sdk
+```
 
-### Getting Started
+or
 
-1. Install dependencies:
-   `pnpm install`
+```bash
+yarn add @coinbase/coinbase-sdk
+```
 
-2. Build all packages:
-   pnpm compile
+## Usage
 
-### Development Workflow
+### Initialization
 
-- Run development mode across all packages:
-  pnpm compile:watch
+#### You can import the SDK as follows:
 
-- Run tests:
-  `pnpm test`
+CommonJs:
 
-  > **Note:** Tests require [anvil](https://github.com/foundry-rs/foundry/tree/master/crates/anvil) and [forge](https://github.com/foundry-rs/foundry) to be installed. You can run a local anvil instance using anvil.
+```javascript
+const { Coinbase, Wallet } = require("@coinbase/coinbase-sdk");
+```
 
-- Linting and formatting is enforced via git hooks
+ES modules:
+
+```typescript
+import { Coinbase, Wallet } from "@coinbase/coinbase-sdk";
+```
+
+To start, [create a CDP API Key](https://portal.cdp.coinbase.com/access/api). Then, initialize the Platform SDK by passing your API Key name and API Key's private key via the `Coinbase` constructor:
+
+```typescript
+const apiKeyName = "Copy your API Key name here.";
+
+const privateKey = "Copy your API Key's private key here.";
+
+Coinbase.configure({ apiKeyName: apiKeyName, privateKey: privateKey });
+```
+
+If you are using a CDP Server-Signer to manage your private keys, enable it with the constuctor option:
+```typescript
+Coinbase.configure({ apiKeyName: apiKeyName, privateKey: apiKeyPrivateKey, useServerSigner: true })
+```
+
+Another way to initialize the SDK is by sourcing the API key from the json file that contains your API key, downloaded from CDP portal.
+
+```typescript
+Coinbase.configureFromJson({ filePath: "path/to/your/api-key.json" });
+```
+
+This will allow you to authenticate with the Platform APIs.
+
+CommonJs:
+
+```javascript
+const { Coinbase, Wallet } = require("@coinbase/coinbase-sdk");
+Coinbase.configureFromJson("path/to/your/api-key.json");
+
+// List all Wallets for the CDP Project.
+Wallet.listWallets().then(resp => {
+  console.log(resp.data);
+});
+```
+
+Or using ES modules and async/await:
+
+```typescript
+import { Coinbase, Wallet } from "@coinbase/coinbase-sdk";
+Coinbase.configureFromJson("path/to/your/api-key.json");
+
+// List all Wallets for the CDP Project.
+const resp = await Wallet.listWallets();
+console.log(resp.data);
+```
+
+### Wallets, Addresses, and Transfers
+
+Now, create a Wallet which will default to the Base Sepolia testnet network (if not specified).
+
+```typescript
+// Create a Wallet with one Address by default.
+const wallet = await Wallet.create();
+```
+
+Next, view the default Address of your Wallet. You will need this default Address in order to fund the Wallet for your first Transfer.
+
+```typescript
+// A Wallet has a default Address.
+const address = await wallet.getDefaultAddress();
+console.log(`Address: ${address}`);
+```
+
+Wallets do not have funds on them to start. In order to fund the Address, you will need to send funds to the Wallet you generated above. If you don't have testnet funds, get funds from a [faucet](https://docs.base.org/docs/tools/network-faucets/).
+
+For development purposes, we provide a `faucet` method to fund your address with ETH on Base Sepolia testnet. We allow one faucet claim per address in a 24 hour window.
+
+```typescript
+// Create a faucet request that returns you a Faucet transaction that can be used to track the tx hash.
+const faucetTransaction = await wallet.faucet();
+console.log(`Faucet transaction: ${faucetTransaction}`);
+```
+
+```typescript
+// Create a new Wallet to transfer funds to.
+// Then, we can transfer 0.00001 ETH out of the Wallet to another Wallet.
+const anotherWallet = await Wallet.create();
+let transfer = await wallet.createTransfer({ amount: 0.00001, assetId: Coinbase.assets.Eth, destination: anotherWallet });
+transfer = await transfer.wait();
+```
+
+
+### Gasless USDC Transfers
+
+To transfer USDC without needing to hold ETH for gas, you can use the `createTransfer` method with the `gasless` option set to `true`.
+```typescript
+let transfer = await wallet.createTransfer({ amount: 0.00001, assetId: Coinbase.assets.Usdc, destination: anotherWallet, gasless: true });
+transfer = await transfer.wait();
+```
+
+By default, gasless transfers are batched with other transfers, and might take longer to submit. If you want to opt out of batching, you can set the `skipBatching` option to `true`, which will submit the transaction immediately.
+```typescript
+let transfer = await wallet.createTransfer({
+  amount: 0.00001,
+  assetId: Coinbase.assets.Usdc,
+  destination: anotherWallet,
+  gasless: true,
+  skipBatching: true
+});
+transfer = await transfer.wait();
+```
+
+### Trading Funds
+
+```typescript
+// Create a Wallet on `base-mainnet` to trade assets with.
+let mainnetWallet = await Wallet.create({ networkId: Coinbase.networks.BaseMainnet });
+
+console.log(`Wallet successfully created: ${mainnetWallet}`);
+
+// Fund your Wallet's default Address with ETH from an external source.
+
+// Trade 0.00001 ETH to USDC
+let trade = await wallet.createTrade({ amount: 0.00001, fromAssetId: Coinbase.assets.Eth, toAssetId: Coinbase.assets.Usdc });
+trade = await trade.wait();
+
+console.log(`Trade successfully completed: ${trade}`);
+```
+
+### Re-Instantiating Wallets
+
+The SDK creates Wallets with developer managed keys, which means you are responsible for securely storing the keys required to re-instantiate Wallets. The below code walks you through how to export a Wallet and store it in a secure location.
+
+```typescript
+// Export the data required to re-instantiate the Wallet.
+const data = wallet.export();
+```
+
+In order to persist the data for the Wallet, you will need to implement a store method to store the data export in a secure location. If you do not store the Wallet in a secure location you will lose access to the Wallet and all of the funds on it.
+
+```typescript
+// At this point, you should implement your own "store" method to securely persist
+// the data required to re-instantiate the Wallet at a later time.
+await store(data);
+```
+
+For convenience during testing, we provide a `saveSeed` method that stores the wallet's seed in your local file system. This is an insecure method of storing wallet seeds and should only be used for development purposes.
+
+```typescript
+const seedFilePath = "";
+wallet.saveSeedToFile(seedFilePath);
+```
+
+To encrypt the saved data, set encrypt to true. Note that your CDP API key also serves as the encryption key for the data persisted locally. To re-instantiate wallets with encrypted data, ensure that your SDK is configured with the same API key when invoking `saveSeed` and `loadSeed`.
+
+```typescript
+wallet.saveSeedToFile(seedFilePath, true);
+```
+
+The below code demonstrates how to re-instantiate a Wallet from the data export.
+
+```typescript
+// The Wallet can be re-instantiated using the exported data.
+const importedWallet = await Wallet.import(data);
+```
+
+To import Wallets that were persisted to your local file system using `saveSeed`, use the below code.
+
+```typescript
+const userWallet = await Wallet.fetch(wallet.getId());
+await userWallet.loadSeedFromFile(seedFilePath);
+```
+
+## Acknowledgments
+This project includes code from [viem](https://github.com/wevm/viem) licensed under MIT.

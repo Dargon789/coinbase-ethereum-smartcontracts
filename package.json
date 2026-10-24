@@ -1,170 +1,64 @@
 {
-  "name": "workspace",
-  "private": true,
-  "type": "module",
+  "name": "@coinbase/coinbase-sdk",
+  "author": "Coinbase Inc.",
+  "license": "ISC",
+  "description": "Coinbase Platform SDK",
+  "repository": "https://github.com/coinbase/coinbase-sdk-nodejs",
+  "version": "0.25.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "pnpm run --filter @wagmi/core --filter @wagmi/cli build && pnpm run --filter @wagmi/connectors build && pnpm run --filter wagmi --filter @wagmi/vue build",
-    "bench:types": "TYPES=true vitest bench-d.ts",
-    "changeset:prepublish": "pnpm clean && pnpm version:update && pnpm build && node scripts/formatPackageJson.ts && node scripts/generateProxyPackages.ts",
-    "changeset:publish": "pnpm changeset:prepublish && changeset publish",
-    "changeset:version": "changeset version && pnpm version:update && pnpm format",
-    "check": "biome check --write",
-    "check:repo": "sherif -i viem",
-    "check:types": "pnpm run --r --parallel check:types && tsc --noEmit",
-    "check:unused": "pnpm clean && knip",
-    "clean": "pnpm run --r --parallel clean && rm -rf packages/**/*.json.tmp",
-    "deps": "pnpx taze -r",
-    "deps:ci": "pnpx actions-up",
-    "dev": "pnpm dev:react",
-    "dev:cli": "pnpm --filter cli dev",
-    "dev:core": "pnpm --filter vite-core dev",
-    "dev:create-wagmi": "pnpm --filter create-wagmi dev",
-    "dev:next": "pnpm --filter next-app dev",
-    "dev:nuxt": "pnpm --filter nuxt-app dev",
-    "dev:react": "pnpm --filter vite-react dev",
-    "dev:start": "pnpm --filter tanstack-start dev",
-    "dev:vue": "pnpm --filter vite-vue dev",
-    "docs:dev": "pnpm --filter site dev",
-    "format": "biome format --write",
-    "postinstall": "pnpm preconstruct",
-    "preconstruct": "node scripts/preconstruct.ts",
-    "preinstall": "pnpx only-allow pnpm",
-    "prepare": "pnpm simple-git-hooks",
-    "test": "vitest",
-    "test:build": "node scripts/generateProxyPackages.ts && pnpm run --r --parallel test:build",
-    "test:cov": "vitest run --coverage",
-    "test:typecheck": "vitest typecheck",
-    "test:update": "vitest --update",
-    "version:update": "node scripts/updateVersion.ts",
-    "version:update:viem": "node scripts/updateViemVersion.ts"
+    "lint": "eslint -c .eslintrc.json src/coinbase/**.ts",
+    "lint-fix": "eslint -c .eslintrc.json src/coinbase/*.ts --fix",
+    "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+    "format-check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+    "check": "tsc --noEmit",
+    "test": "jest --config jest.config.js --testPathIgnorePatterns src/tests/e2e.ts src/tests/utils.ts src/tests/types.test-d.ts",
+    "test:dry-run": "npm install && npm ci && npm publish --dry-run",
+    "test:e2e": "npx jest --no-cache --testMatch=**/e2e.ts --coverageThreshold '{}'",
+    "test:e2e:stake": "npx jest --no-cache --testMatch=**/e2e.ts --coverageThreshold '{}' -t Stake",
+    "test:types": "tsd --files src/tests/types.test-d.ts",
+    "clean": "rm -rf dist/*",
+    "build": "tsc",
+    "prepack": "tsc --skipLibCheck",
+    "docs": "typedoc --entryPoints ./src --entryPointStrategy expand --exclude ./src/tests/**/*.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@scure/bip32": "^1.4.0",
+    "abitype": "^1.0.6",
+    "axios": "^1.20.0",
+    "axios-mock-adapter": "^1.22.0",
+    "axios-retry": "^4.4.1",
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "decimal.js": "^10.4.3",
+    "dotenv": "^16.4.5",
+    "ed2curve": "^0.3.0",
+    "ethers": "^6.12.1",
+    "jose": "^5.10.0",
+    "secp256k1": "^5.0.0",
+    "viem": "^2.21.26"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.16.4",
-    "@ark/attest": "^0.56.0",
-    "@biomejs/biome": "^2.2.4",
-    "@changesets/cli": "^3.0.0-next.0",
-    "@svitejs/changesets-changelog-github-compact": "^1.2.0",
-    "@types/node": "^24.5.1",
-    "@vitejs/plugin-react": "catalog:",
-    "@vitest/browser": "^4.0.16",
-    "@vitest/browser-playwright": "^4.0.16",
-    "@vitest/coverage-v8": "^4.0.16",
-    "@wagmi/test": "workspace:*",
-    "happy-dom": "^20.0.0",
-    "knip": "^5.69.0",
-    "playwright": "1.56.1",
-    "prool": "^0.2.2",
-    "publint": "^0.2.11",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "sherif": "^1.0.0",
-    "simple-git-hooks": "^2.11.1",
-    "testcontainers": "^11.11.0",
-    "typescript": "^5.9.3",
-    "viem": "2.44.0",
-    "vite-plugin-react-fallback-throttle": "^0.1.1",
-    "vitest": "^4.1.10",
-    "vitest-browser-react": "^2.0.2"
-  },
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "version": "^22.0.0",
-      "onFail": "download"
-    }
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm check"
-  },
-  "knip": {
-    "ignore": [
-      "**/templates/**",
-      "**/hardhat.config.js",
-      "packages/**/*.bench-d.ts",
-      "scripts/**"
-    ],
-    "ignoreWorkspaces": [
-      "packages/register-tests/**",
-      "packages/test",
-      "playgrounds/**",
-      "site/**"
-    ],
-    "workspaces": {
-      "packages/cli": {
-        "entry": [
-          "src/cli.ts!",
-          "src/exports/{config,index,plugins}.ts!",
-          "types/*.d.ts!"
-        ],
-        "ignore": [
-          "test/{constants,setup,utils}.ts"
-        ]
-      },
-      "packages/connectors": {
-        "entry": "src/exports/index.ts!",
-        "ignoreDependencies": [
-          "@base-org/account",
-          "@coinbase/wallet-sdk",
-          "@gemini-wallet/core",
-          "@metamask/sdk",
-          "@safe-global/safe-apps-provider",
-          "@safe-global/safe-apps-sdk",
-          "@wagmi/core",
-          "@walletconnect/ethereum-provider",
-          "porto"
-        ]
-      },
-      "packages/core": {
-        "entry": "src/exports/{actions,chains,codegen,experimental,index,internal,query,tempo}.ts!",
-        "ignore": [
-          "test/setup.ts"
-        ],
-        "ignoreDependencies": [
-          "@tanstack/query-core",
-          "ox"
-        ]
-      },
-      "packages/create-wagmi": {
-        "entry": "src/cli.ts!"
-      },
-      "packages/react": {
-        "entry": [
-          "src/exports/{actions,chains,codegen,connectors,experimental,index,internal,query,tempo}.ts!",
-          "src/exports/actions/experimental.ts!"
-        ],
-        "ignore": [
-          "test/setup.ts"
-        ]
-      },
-      "packages/test": {
-        "entry": [
-          "src/setup.ts!",
-          "src/setup.global.ts!",
-          "src/setup.global.types.ts!",
-          "src/exports/{index,react,tempo}.ts!",
-          "src/tempo/setup.ts!",
-          "src/tempo/setup.global.ts!"
-        ]
-      },
-      "packages/vue": {
-        "entry": [
-          "src/exports/{actions,chains,connectors,index,internal,nuxt,query}.ts!",
-          "src/exports/actions/experimental.ts!"
-        ],
-        "ignore": [
-          "src/nuxt/runtime/*",
-          "test/setup.ts"
-        ],
-        "ignoreDependencies": [
-          "nuxt"
-        ]
-      }
-    }
-  },
-  "dependencies": {
-    "@coinbase/cdp-sdk": "^1.47.0",
-    "@coinbase/onchainkit": "^1.1.2",
-    "flag": "^5.0.1"
+    "@types/jest": "^29.5.12",
+    "@types/node": "^24.5.2",
+    "@types/secp256k1": "^4.0.6",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsdoc": "^48.2.5",
+    "eslint-plugin-prettier": "^5.1.3",
+    "jest": "^29.7.0",
+    "mock-fs": "^5.2.0",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "tsd": "^0.31.2",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.9.2"
   }
 }
