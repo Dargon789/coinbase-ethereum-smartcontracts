@@ -1,6 +1,5 @@
 import { config } from '@wagmi/test'
 import { expect, test } from 'vitest'
-
 import { safe } from './safe.js'
 
 /*

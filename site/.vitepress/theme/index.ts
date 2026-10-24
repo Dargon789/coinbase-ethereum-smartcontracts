@@ -1,4 +1,5 @@
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
+import { inject } from '@vercel/analytics'
 import type { EnhanceAppContext, Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 // https://vitepress.dev/guide/custom-theme
@@ -27,5 +28,6 @@ export default {
   },
   enhanceApp({ app }: EnhanceAppContext) {
     app.use(TwoslashFloatingVue)
+    inject()
   },
 } satisfies Theme
