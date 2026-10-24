@@ -1,5 +1,5 @@
 export const wagmiContractConfig = {
-  address: '0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2',
+  address: '0x9a72807e1BC8A5e1E178f51E26239d58F511EB3D',
   abi: [
     { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
     {
