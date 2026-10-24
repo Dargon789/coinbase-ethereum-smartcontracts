@@ -1,9 +1,7 @@
-## Description
+### What changed? Why?
 
-_Concise description of proposed changes_
 
-## Additional Information
-
-- [ ] I read the [contributing docs](/wagmi-dev/wagmi/blob/main/.github/CONTRIBUTING.md) (if this is your first contribution)
-
-Your ENS/address:
+#### Qualified Impact
+<!-- Please evaluate what components could be affected and what the impact would be if there was an
+error. How would this error be resolved, e.g. rollback a deploy, push a new fix, disable a feature
+flag, etc... -->
